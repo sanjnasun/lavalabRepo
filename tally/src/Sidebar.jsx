@@ -8,8 +8,7 @@ import book from './images/book.png';
 import darkComp from './images/componentDark.png';
 import inventDark from './images/InventDark.png';
 import cardDark from './images/CardDark.png';
-import bookDark from './images/BookDark.png';
-import profile from './images/profile.png'
+import bookDark from './images/bookDark.png';
 
 const Sidebar = () => {
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
@@ -41,7 +40,7 @@ const Sidebar = () => {
 
   const handleClick = (name) => {
     setActiveSection(name);
-    setSidebarExpanded(false);
+    setSidebarExpanded(false); // collapse after click
   };
 
   return (
@@ -52,47 +51,51 @@ const Sidebar = () => {
       onMouseEnter={() => setSidebarExpanded(true)}
       onMouseLeave={() => setSidebarExpanded(false)}
     >
-
-
+      {/* Logo / Tally */}
       <div
         className={`flex items-center gap-3 px-4 cursor-pointer transition-all duration-200`}
         onClick={() => setSidebarExpanded((prev) => !prev)}
       >
         <img src={tally} alt="Tally Logo" className="w-8 h-8" />
-        {sidebarExpanded && <span className="text-indigo-600 font text-lg">Tally</span>}
+        {sidebarExpanded && <span className="text-indigo-600 font-semibold text-lg">Tally</span>}
       </div>
 
-
+      {/* Navigation Items */}
       <nav className="flex-1 mt-8 px-3">
         <div className="space-y-1">
-          {sidebarItems.map((item) => {
+          {sidebarItems.map((item, index) => {
             const isActive = activeSection === item.name;
             const isHovered = hoveredSection === item.name;
             const shouldUseDarkIcon = isActive || isHovered;
 
             return (
-              <button
-                key={item.name}
-                onClick={() => handleClick(item.name)}
-                onMouseEnter={() => setHoveredSection(item.name)}
-                onMouseLeave={() => setHoveredSection(null)}
-                title={!sidebarExpanded ? item.name : ''}
-                className={`w-full flex items-center gap-3 px-3 py-3 transition-all duration-200 cursor-pointer rounded-lg border ${
-                  isActive
-                    ? 'text-indigo-700 border-indigo-300'
-                    : isHovered
-                    ? 'text-indigo-600 hover:bg-gray-50 border-indigo-200'
-                    : 'text-gray-400 hover:bg-gray-50 hover:text-gray-600 border-transparent hover:border-gray-300'
-                } ${sidebarExpanded ? 'justify-start' : 'justify-center'}`}
-                style={isActive ? { backgroundColor: '#DADCEE' } : {}}
-              >
-                <img
-                  src={shouldUseDarkIcon ? item.darkIcon : item.icon}
-                  alt={item.name}
-                  className="w-4 h-4 flex-shrink-0 transition-all duration-200"
-                />
-                {sidebarExpanded && <span className="font-medium">{item.name}</span>}
-              </button>
+              <div key={item.name}>
+                <button
+                  onClick={() => handleClick(item.name)}
+                  onMouseEnter={() => setHoveredSection(item.name)}
+                  onMouseLeave={() => setHoveredSection(null)}
+                  title={!sidebarExpanded ? item.name : ''}
+                  className={`w-full flex items-center gap-3 px-3 py-3 transition-all duration-200 cursor-pointer rounded-lg border ${
+                    isActive
+                      ? 'text-indigo-700 border-indigo-300'
+                      : isHovered
+                      ? 'text-indigo-600 hover:bg-gray-50 border-indigo-200'
+                      : 'text-gray-400 hover:bg-gray-50 hover:text-gray-600 border-transparent hover:border-gray-300'
+                  } ${sidebarExpanded ? 'justify-start' : 'justify-center'}`}
+                  style={isActive ? { backgroundColor: '#DADCEE' } : {}}
+                >
+                  <img
+                    src={shouldUseDarkIcon ? item.darkIcon : item.icon}
+                    alt={item.name}
+                    className="w-4 h-4 flex-shrink-0 transition-all duration-200"
+                  />
+                  {sidebarExpanded && <span className="font-medium">{item.name}</span>}
+                </button>
+                {/* Add border after Fulfillment (index 2) */}
+                {index === 2 && (
+                  <div className="border-t border-gray-200 my-3"></div>
+                )}
+              </div>
             );
           })}
         </div>
@@ -113,15 +116,14 @@ const Sidebar = () => {
           {sidebarExpanded && <span className="font-medium">Logout</span>}
         </button>
 
-
-
+        {/* Profile */}
         <div
           className={`flex items-center gap-3 px-3 py-3 transition-all duration-200 ${
             sidebarExpanded ? 'justify-start' : 'justify-center'
           }`}
         >
           <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
-              <img src={profile} alt="Profile" className="w-8 h-8 object-cover rounded-full" />
+            <User className="w-4 h-4 text-gray-600" />
           </div>
           {sidebarExpanded && (
             <div className="flex flex-col">
