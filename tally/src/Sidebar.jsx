@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { LogOut, User } from 'lucide-react';
 import vector from './images/Vector.png';
 import tally from './images/tally.png';
-import invent from '../images/inventory.png';
+import invent from './images/inventory.png';
 import card from './images/card.png';
 import book from './images/book.png';
 import darkComp from './images/componentDark.png';
-import inventDark from '../images/InventDark.png';
+import inventDark from './images/InventDark.png';
 import cardDark from './images/CardDark.png';
 import bookDark from './images/bookDark.png';
 import profile from './images/profile.png'
