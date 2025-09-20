@@ -8,7 +8,7 @@ import book from './images/book.png';
 import darkComp from './images/componentDark.png';
 import inventDark from './images/InventDark.png';
 import cardDark from './images/CardDark.png';
-import bookDark from './images/bookDark.png';
+import bookDark from './images/BookDark.png';
 import profile from './images/profile.png'
 
 const Sidebar = () => {
