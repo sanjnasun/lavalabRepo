@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('./fonts/UncutSans-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('./fonts/UncutSans-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
