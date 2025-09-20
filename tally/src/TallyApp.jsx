@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar.jsx";
 import { Search } from 'lucide-react';
-import redImg from '../images/red.png';
-import blackImg from '../images/black.png';
-import whiteImg from '../images/white.png';
+import redImg from './images/red.png';
+import blackImg from './images/black.png';
+import whiteImg from './images/white.png';
 
 
 const inventory = [
