@@ -18,13 +18,17 @@ Follow these steps to run the project locally:
 
 1. Clone the repository
 bashgit clone https://github.com/sanjnasun/lavalabRepo.git
+
 2. Navigate to the project folder
-bashcd lavalabRepo
-cd tally
-3. Install dependencies
-bashnpm install
-4. Run the development server
-bashnpm run dev
+- cd lavalabRepo
+- cd tally
+
+4. Install dependencies
+- npm install
+
+5. Run the development server
+- run npm run dev
+  
 Then paste the URL into your browser and you're good to go!
 
 Thank you! :)
